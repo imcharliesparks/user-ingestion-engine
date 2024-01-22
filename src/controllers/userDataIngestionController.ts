@@ -29,7 +29,7 @@ export const getUser = async (req: CustomUserDataRequest, res: Response) => {
 
 		return res.status(200).json({
 			status: APIStatuses.SUCCESS,
-			type: DocumentResponses.DATA_UPDATED,
+			type: DocumentResponses.DATA_FOUND,
 			data: { user_data: curentUserData }
 		})
 	} catch (e) {
