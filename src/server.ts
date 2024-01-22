@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import userDataIngestionRouter from './routers/userDataIngestionRouter'
 dotenv.config()
 
 // Initialize Firebase Admin
@@ -18,8 +19,10 @@ const port = process.env.PORT || 3001
 app.use(express.json())
 
 app.get('/', (req, res) => {
-	res.send('Hello World!')
+	res.send('Health check!')
 })
+
+app.use('/ingest', userDataIngestionRouter)
 
 app.listen(port, () => {
 	console.log(`Server is running at http://localhost:${port}`)
