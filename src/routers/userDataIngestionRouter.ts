@@ -6,10 +6,10 @@ import setupFirebaseMiddleware from '../middleware/setupFirebase'
 
 userDataIngestionRouter.use(setupFirebaseMiddleware)
 
-userDataIngestionRouter.get('/', getUser)
+userDataIngestionRouter.get('/', getAllUsers)
+userDataIngestionRouter.get('/:id', getUser)
 userDataIngestionRouter.post('/', createUser)
 userDataIngestionRouter.put('/:id', updateUser)
 userDataIngestionRouter.delete('/:id', deleteUser)
-userDataIngestionRouter.get('/all', getAllUsers)
 
 export default userDataIngestionRouter

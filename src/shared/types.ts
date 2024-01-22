@@ -29,13 +29,12 @@ export enum ApplicationSource {
 	PLUSFRAMES_WEB = 'Plusframes Web'
 }
 
-// TODO: Think about how to better handle this
 export enum TypeOfPerson {
 	ADMIN = 'ADMIN',
 	VISITOR = 'VISITOR',
-	PROMOTER = 'PROMOTER'
+	PROMOTER = 'PROMOTER',
+	REGISTERED_VISITOR = 'REGISTERED_VISITOR'
 }
-
 export type ClientPlatform = {
 	osName: string
 	osVersion: string
