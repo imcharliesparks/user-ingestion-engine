@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import {
 	DocumentData,
 	QueryDocumentSnapshot,
@@ -68,8 +68,10 @@ export const createUser = async (req: CustomUserDataRequest, res: Response) => {
 			clientReferrer: req.body.referrer,
 			ipAddress: req.body.ip,
 			applicationSource: req.body.applicationSource,
-			typeOfPerson: req.body.typeOfPersonf
+			typeOfPerson: req.body.typeOfPerson
 		}
+
+		console.log('payload', payload)
 
 		const documentRef = await addDoc(req.collectionData!, payload)
 
@@ -95,7 +97,7 @@ export const createUser = async (req: CustomUserDataRequest, res: Response) => {
 
 export const updateUser = async (req: CustomUserDataRequest, res: Response) => {
 	const id = req.params.id as string
-	const { newUserRole, personalInfo } = req.body
+	const { typeOfPerson, personalInfo } = req.body
 
 	try {
 		const documentRef = doc(req.collectionData!, id)
@@ -105,7 +107,7 @@ export const updateUser = async (req: CustomUserDataRequest, res: Response) => {
 		const updatedUserData: AnalyticsPersonData = {
 			...curentUserData,
 			personalInfo,
-			typeOfPerson: newUserRole
+			typeOfPerson
 		}
 
 		await updateDoc(documentRef, updatedUserData)
