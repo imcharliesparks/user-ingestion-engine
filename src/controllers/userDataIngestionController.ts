@@ -71,8 +71,6 @@ export const createUser = async (req: CustomUserDataRequest, res: Response) => {
 			typeOfPerson: req.body.typeOfPerson
 		}
 
-		console.log('payload', payload)
-
 		const documentRef = await addDoc(req.collectionData!, payload)
 
 		if (documentRef.id) {
