@@ -3,16 +3,6 @@ import dotenv from 'dotenv'
 import userDataIngestionRouter from './routers/userDataIngestionRouter'
 dotenv.config()
 
-// Initialize Firebase Admin
-// const serviceAccount = require('../path/to/your/firebase-service-account.json')
-
-// admin.initializeApp({
-// 	credential: admin.credential.cert(serviceAccount)
-// })
-
-// const db = admin.firestore()
-
-// Initialize Express
 const app = express()
 const port = process.env.PORT || 3001
 
